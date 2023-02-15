@@ -13,7 +13,7 @@ app.use("/", (req, res, next)=>{
 });
 
 app.use("/app-product", (req, res, next)=>{
-    console.log("next Middleware");
+    console.log("app-product Middleware");
     res.send("<h1>Hello This is from app-product Midlleware</h1>");
 });
 
