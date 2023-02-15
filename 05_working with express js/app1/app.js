@@ -10,6 +10,11 @@ app = express();
 
 app.use((req, res, next)=>{
     console.log("first Middleware");
+    next();
+});
+
+app.use((req, res, next)=>{
+    console.log("next Middleware");
 });
 
 const server = http.createServer(app);
