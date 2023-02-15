@@ -32,11 +32,10 @@ const requestHandler = (req, res)=> {
                 res.setHeader("Location", "/");
                 return res.end();
             });
-
+            
 
         });
         
-
     }
     res.setHeader("Content-Type", "text/html"); // these below lines will be executed before the lines 39 -41
     res.write("<html>");
