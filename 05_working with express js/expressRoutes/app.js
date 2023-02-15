@@ -4,27 +4,24 @@
 //read the data from the post request
 // npm install --save body-parser
 
+//"restart": true,
+//"runtimeExecutable": "nodemon",
+//"console": "integratedTerminal"   in configuration file
+
 const express = require("express");
 const bodyParser = require("body-parser");
 
-app = express();
+const adminRouter = require("./routes/admin");
+const shopRouter = require("./routes/shop");
+
+const app = express();
 
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(adminRouter);
+app.use(shopRouter);
 
-app.use("/add-product", (req, res, next)=>{
-    console.log("add-product Middleware");
-    res.send('<form action = "/product" method = "POST" ><input type="text" name="product"><button type="submit">ADD this product</button></form>');
-});
-
-app.post("/product", (req, res, next)=>{ // using app.post, only triggered for post requests
-    console.log("product Middleware");
-    console.log(req.body);
-    res.redirect("/");
-});
-
-app.use("/", (req, res, next)=>{
-    console.log("last Middleware");
-    res.send("<h1>Hello This is from Express Midlleware</h1>");
+app.use((req, res, next)=>{
+    res.status(404).send('<h1>Page not Found</h1>');
 });
 
 app.listen(3000);
