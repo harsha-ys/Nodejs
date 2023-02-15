@@ -7,13 +7,18 @@ const express = require("express");
 
 app = express();
 
-app.use((req, res, next)=>{
-    console.log("first Middleware");
+app.use("/", (req, res, next)=>{
+    console.log("first Middleware and alwaays run");
     next();
 });
 
-app.use((req, res, next)=>{
+app.use("/app-product", (req, res, next)=>{
     console.log("next Middleware");
+    res.send("<h1>Hello This is from app-product Midlleware</h1>");
+});
+
+app.use("/", (req, res, next)=>{
+    console.log("last Middleware");
     res.send("<h1>Hello This is from Express Midlleware</h1>");
 });
 
