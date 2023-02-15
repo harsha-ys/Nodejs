@@ -4,12 +4,14 @@
 //read the data from the post request
 const http = require("http");
 
-const app = require("express");
+const express = require("express");
+
+app = express();
 
 app.use((req, res, next)=>{
     console.log("first Middleware");
 });
 
-const server = http.createServer(hd.handler);
+const server = http.createServer(app);
 
 server.listen(3000);
