@@ -16,7 +16,7 @@ app.use("/add-product", (req, res, next)=>{
     res.send('<form action = "/product" method = "POST" ><input type="text" name="product"><button type="submit">ADD this product</button></form>');
 });
 
-app.use("/product", (req, res, next)=>{
+app.post("/product", (req, res, next)=>{ // using app.post, only triggered for post requests
     console.log("product Middleware");
     console.log(req.body);
     res.redirect("/");
