@@ -5,7 +5,7 @@
 
 const express = require("express");
 
-app = express();
+const app = express();
 
 app.use("/", (req, res, next)=>{
     console.log("first Middleware and alwaays run");
