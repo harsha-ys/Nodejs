@@ -14,7 +14,7 @@ adminRouter.get("/add-product", (req, res, next)=>{ //.get() match the url exact
 
 const products = [];
 // /admin/add-product => post
-adminRouter.post("/product", (req, res, next)=>{ // using app.post, only triggered for post requests
+adminRouter.post("/add-product", (req, res, next)=>{ // using app.post, only triggered for post requests
     console.log("product Middleware");
     //console.log(req.body);
     products.push({title: req.body.title});
