@@ -11,11 +11,15 @@ adminRouter.get("/add-product", (req, res, next)=>{ //.get() match the url exact
     res.sendFile(path.join(rootDir, "views", "add-product.html"));
 });
 
+
+const products = [];
 // /admin/add-product => post
 adminRouter.post("/product", (req, res, next)=>{ // using app.post, only triggered for post requests
     console.log("product Middleware");
-    console.log(req.body);
+    //console.log(req.body);
+    products.push({title: req.body.title});
     res.redirect("/");
 });
 
-module.exports = adminRouter
+module.exports.routes = adminRouter
+module.exports.products = products
