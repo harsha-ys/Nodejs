@@ -8,6 +8,9 @@
 //"runtimeExecutable": "nodemon",
 //"console": "integratedTerminal"   in configuration file
 
+//template engines
+// npm install --save ejs pug express-handlebars
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
