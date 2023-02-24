@@ -9,8 +9,9 @@ const shopRouter = express.Router();
 shopRouter.get("/", (req, res, next)=>{
     console.log("shop Middleware");
     console.log(adminData.products);
-    res.sendFile(path.join(rootDir, "views", "shop.html"));
+    //res.sendFile(path.join(rootDir, "views", "shop.html"));
     //res.send("<h1>Hello This is from Express Midlleware</h1>");
+    res.render('shop');
 });
 
 
