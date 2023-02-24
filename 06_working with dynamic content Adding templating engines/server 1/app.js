@@ -22,7 +22,7 @@ const rootDir = require("./util/path");
 const app = express();
 
 app.set('view engine', 'pug');
-app.set('views','views');// wheere to find dynamic pug templates
+app.set('views',__dirname+'/views');// wheere to find dynamic pug templates
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname, "public")));
