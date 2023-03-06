@@ -10,10 +10,12 @@
 
 //template engines
 // npm install --save ejs pug express-handlebars
+//npm install --save express-handlebars@3.0  
 
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+const expressHbs =  require('express-handlebars');
 
 const adminData = require("./routes/admin");
 const shopRouter = require("./routes/shop");
@@ -21,7 +23,8 @@ const rootDir = require("./util/path");
 
 const app = express();
 
-app.set('view engine', 'pug');
+app.engine('hbs', expressHbs.engine({defaultLayout : false}));
+app.set('view engine', 'hbs');
 app.set('views',__dirname+'/views');// wheere to find dynamic pug templates
 
 app.use(bodyParser.urlencoded({extended:false}));

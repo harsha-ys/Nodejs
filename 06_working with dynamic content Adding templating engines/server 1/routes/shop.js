@@ -12,7 +12,7 @@ shopRouter.get("/", (req, res, next)=>{
     const products = adminData.products;
     //res.sendFile(path.join(rootDir, "views", "shop.html"));
     //res.send("<h1>Hello This is from Express Midlleware</h1>");
-    res.render('shop', {prods:products, title :"Shop", act:'shop'});
+    res.render('shop', {prods:products, title :"Shop", act:'shop', hasitem : products.length});
 });
 
 
