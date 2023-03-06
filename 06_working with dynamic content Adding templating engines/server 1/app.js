@@ -23,7 +23,7 @@ const rootDir = require("./util/path");
 
 const app = express();
 
-app.engine('hbs', expressHbs.engine({defaultLayout : false}));
+app.engine('hbs', expressHbs.engine({extname: "hbs", defaultLayout : 'main-layout', layoutsDir : path.join(__dirname, "views", "layouts")}));
 app.set('view engine', 'hbs');
 app.set('views',__dirname+'/views');// wheere to find dynamic pug templates
 
