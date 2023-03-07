@@ -15,7 +15,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const expressHbs =  require('express-handlebars');
+//const expressHbs =  require('express-handlebars');
 
 const adminData = require("./routes/admin");
 const shopRouter = require("./routes/shop");
@@ -23,8 +23,13 @@ const rootDir = require("./util/path");
 
 const app = express();
 
-app.engine('hbs', expressHbs.engine({extname: "hbs", defaultLayout : 'main-layout', layoutsDir : path.join(__dirname, "views", "layouts")}));
-app.set('view engine', 'hbs');
+/*app.engine('hbs', expressHbs.engine(
+    {extname: "hbs", 
+    defaultLayout : 'main-layout', 
+    layoutsDir : path.join(__dirname, "views", "layouts")
+    }));
+*/
+app.set('view engine', 'ejs');
 app.set('views',__dirname+'/views');// wheere to find dynamic pug templates
 
 app.use(bodyParser.urlencoded({extended:false}));
