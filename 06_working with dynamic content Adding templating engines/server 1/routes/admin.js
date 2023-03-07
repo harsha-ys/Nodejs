@@ -14,6 +14,7 @@ adminRouter.get("/add-product", (req, res, next)=>{ //.get() match the url exact
         title : 'Add Product', 
         act : 'add-product',
         activeAddProduct: true,
+        activeShop: false,
         productCSS: true,
         formsCSS: true
     });

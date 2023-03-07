@@ -19,7 +19,8 @@ shopRouter.get("/", (req, res, next)=>{
         act:'shop', 
         hasitem : products.length,
         activeShop: true,
-        productCSS: true
+        activeAddProduct: false,
+        productCSS: true        
     });
 });
 
