@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-app.use('/users', users);
+app.use( users);
 app.use( adminData.routes);
 
 app.use((req, res, next)=>{
