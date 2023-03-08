@@ -19,7 +19,8 @@ const path = require("path");
 
 const adminData = require("./routes/admin");
 const shopRouter = require("./routes/shop");
-const rootDir = require("./util/path");
+//const rootDir = require("./util/path");
+const error = require('./controllers/error');
 
 const app = express();
 
@@ -37,9 +38,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/admin', adminData.routes);//filtering paths
 app.use(shopRouter);
-app.use((req, res, next)=>{
-    //res.status(404).sendFile(path.join(rootDir, "views", "404.html"));
-    res.status(404).render('404', {title: 'Page Not Found', activeShop: false, activeAddProduct: false});
-});
+app.use(error.get404);
 
 app.listen(3000);
