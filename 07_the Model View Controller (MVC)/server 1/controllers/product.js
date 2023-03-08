@@ -13,26 +13,31 @@ module.exports.getAddProduct = (req, res, next)=>{ //.get() match the url exactl
     });
 }
 
-const products = [];
+
+
+const product = require('../models/products');
+//const products = [];
 module.exports.postAddProduct=(req, res, next)=>{ // using app.post, only triggered for post requests
     console.log("product Middleware");
     //console.log(req.body);
-    products.push({title: req.body.title});
+    //products.push({title: req.body.title});
+    const newproduct = new product(req.body.title);
+    newproduct.add();
     res.redirect("/");
 }
 
 
 module.exports.getShop=(req, res, next)=>{
     console.log("shop Middleware");
-    console.log(products);
+    console.log(product.fetchAll());
     //res.sendFile(path.join(rootDir, "views", "shop.html"));
     //res.send("<h1>Hello This is from Express Midlleware</h1>");
     res.render('shop', 
     {
-        prods:products, 
+        prods: product.fetchAll(), 
         title :"Shop", 
         act:'shop', 
-        hasitem : products.length,
+        hasitem : product.fetchAll().length,
         activeShop: true,
         activeAddProduct: false,
         productCSS: true        
