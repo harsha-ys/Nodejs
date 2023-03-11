@@ -8,7 +8,7 @@ adminRouter.get("/add-product", adminControllers.getAddProduct);
 
 // /admin/products => get
 adminRouter.get("/products", adminControllers.getProducts);
-das
+dasfdssaf
 
 // /admin/add-product => post
 adminRouter.post("/add-product", adminControllers.postAddProduct);
