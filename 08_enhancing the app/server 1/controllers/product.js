@@ -26,13 +26,12 @@ module.exports.postAddProduct=(req, res, next)=>{ // using app.post, only trigge
 module.exports.getShop=(req, res, next)=>{
     console.log("shop Middleware");
     product.fetchAll((products)=>{
-        res.render('shop/shop', 
+        res.render('shop/product-list', 
         {
             prods: products, 
             title :"Shop", 
             act:'shop', 
-            activeShop: true,
-            activeAddProduct: false,
+            path:'/',
             productCSS: true        
         });
     });
