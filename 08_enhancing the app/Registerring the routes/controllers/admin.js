@@ -4,14 +4,11 @@ module.exports.getAddProduct = (req, res, next)=>{ //.get() match the url exactl
     {
         title : 'Add Product', 
         act : 'add-product',
-        activeAddProduct: true,
-        activeShop: false,
+        path:'admin/add-product',
         productCSS: true,
         formsCSS: true
     });
 }
-
-
 
 const product = require('../models/products');
 
@@ -20,21 +17,4 @@ module.exports.postAddProduct=(req, res, next)=>{ // using app.post, only trigge
     const newproduct = new product(req.body.title);
     newproduct.add();
     res.redirect("/");
-}
-
-
-module.exports.getShop=(req, res, next)=>{
-    console.log("shop Middleware");
-    product.fetchAll((products)=>{
-        res.render('shop/shop', 
-        {
-            prods: products, 
-            title :"Shop", 
-            act:'shop', 
-            activeShop: true,
-            activeAddProduct: false,
-            productCSS: true        
-        });
-    });
-    
 }
