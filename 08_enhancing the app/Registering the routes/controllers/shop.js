@@ -24,7 +24,7 @@ module.exports.getProducts=(req, res, next)=>{
             prods: products, 
             title :"Shop", 
             act:'shop', 
-            path:'/',
+            path:'/products',
             productCSS: true        
         });
     });
@@ -34,28 +34,42 @@ module.exports.getProducts=(req, res, next)=>{
 module.exports.getCart=(req, res, next)=>{
     console.log("shop Middleware");
     product.fetchAll((products)=>{
-        res.render('shop/product-list', 
+        res.render('shop/cart', 
         {
             prods: products, 
             title :"Shop", 
             act:'shop', 
-            path:'/',
+            path:'/cart',
             productCSS: true        
         });
     });
     
 }
 
+module.exports.getOrders=(req, res, next)=>{
+    console.log("shop Middleware");
+    product.fetchAll((products)=>{
+        res.render('shop/orders', 
+        {
+            prods: products, 
+            title :"Orders", 
+            act:'shop', 
+            path:'/orders',
+            productCSS: true        
+        });
+    });
+    
+}
 
 module.exports.getCheckout=(req, res, next)=>{
     console.log("shop Middleware");
     product.fetchAll((products)=>{
-        res.render('shop/product-list', 
+        res.render('shop/checkout', 
         {
             prods: products, 
             title :"Shop", 
             act:'shop', 
-            path:'/',
+            path:'/checkout',
             productCSS: true        
         });
     });

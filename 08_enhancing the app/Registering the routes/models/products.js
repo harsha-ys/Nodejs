@@ -7,8 +7,11 @@ module.exports = class product{
 
     static p = path.join(path.dirname(process.mainModule.filename), 'data', 'products.json');
 
-    constructor(title){
+    constructor(title, imURL, description, price){
         this.title = title;
+        this.imageURL = imURL;
+        this.description = description;
+        this.price = price;
     };
     
     add(){
