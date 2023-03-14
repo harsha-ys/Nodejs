@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\08_enhancing the app\\Registering the routes\\app.js",
+            "program": "${workspaceFolder}\\08_enhancing the app\\Storing, deleting, editing, deleting product data\\app.js",
             "restart": true,
             "runtimeExecutable": "nodemon",
             "console": "integratedTerminal" 
